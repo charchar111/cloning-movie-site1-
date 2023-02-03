@@ -26,6 +26,7 @@ div.apps {
 .main-left {
   box-sizing: border-box;
   width: 35%;
+
   padding: 5%;
   color: red;
   font-size: var(--font-sm1);
@@ -117,6 +118,7 @@ div[class*="column4__row"] div[class*="row__item"] a {
   width: 65%;
   overflow-y: scroll;
   background-color: tomato;
+  position: relative;
 }
 
 .main-right .right__filter {
@@ -297,5 +299,130 @@ div[class*="column4__row"] div[class*="row__item"] a {
 /* 아래/자바스크립트 동적 css */
 
 .none {
-  display: none;
+  visibility: hidden;
+}
+
+.block-scroll {
+  overflow: hidden;
+}
+
+/* 아래/right-fillter에 button 클릭시 열리는 동적 index */
+
+/* .main-right .right__filter--index1 {
+
+  opacity: 0.9;
+  z-index: 99;
+  background-color: tomato;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  transition: all 2s ease-in-out;
+} */
+
+.main-right .right__filter--index1 {
+  opacity: 0;
+}
+
+/* 아래/.index-menu<=.filter__item1 button 클릭 시, div.right__filter--index1에
+추가되는 classname */
+.main-right .index-menu {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  z-index: 90;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  transition: opacity 0.3s linear;
+  padding: 70px 50px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.main-right .index-menu .index--background {
+  opacity: 0.9;
+  position: absolute;
+  background-color: tomato;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 150vh;
+  transition: all 0.3s linear;
+}
+
+.main-right .index-menu .index__title {
+  color: RGB(132, 31, 23);
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-right .index-menu .index__title .x-mark {
+  position: fixed;
+  cursor: pointer;
+  right: clamp(40px, 5%, 100px);
+  top: 60px;
+  transition: all 0.15s linear;
+  font-size: 20px;
+}
+
+.main-right .index-menu .index__title .x-mark:hover {
+  color: whitesmoke;
+  transition: all 0.15s ease-in-out;
+}
+
+.main-right .index-menu button[class*="index__menu"] {
+  border: none;
+  background-color: transparent;
+  margin-bottom: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.main-right .index-menu button[class*="index__menu"]:hover {
+  border: none;
+  background-color: transparent;
+  margin-bottom: 40px;
+  color: RGB(132, 31, 23);
+  font-size: 40px;
+  font-weight: 600;
+  transition: color 0.2s linear;
+}
+
+.main-right .index-menu button[class*="index__menu"] .menu__content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+.main-right
+  .index-menu
+  button[class*="index__menu"]
+  .menu__content
+  .menu__content--sub {
+  position: relative;
+  font-size: 12px;
+  padding: 10px;
+  background-color: red;
+  font-weight: 100;
+  border-radius: 50%;
+  margin-left: 2%;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
